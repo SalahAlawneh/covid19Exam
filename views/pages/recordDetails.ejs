@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+            <p>The country: <%= data.country %>
+            </p>
+            <p>confirmed cases: <%= data.confirmed %>
+            </p>
+            <p>deaths: <%= data.deaths %>
+            </p>
+            <p>recovered cases: <%= data.recovered %>
+            </p>
+            <p>The date: <%= data.date %>
+            </p>
+            <button class="btn">Show The Update Form</button>
+            <form class="update" action="/recordDetails/<%= data.id %>?_method=put" method="POST">
+                <input type="text" name="country" value="<%= data.country %>">
+                <input type="text" name="confirmed" value="<%= data.confirmed %>">
+                <input type="text" name="deaths" value="<%= data.deaths %>">
+                <input type="text" name="recovered" value="<%= data.recovered %>">
+                <input type="text" name="date" value="<%= data.date %>">
+                <button>Update</button>
+            </form>
+            <form action="/recordDetails/<%= data.id %>?_method=delete" method="POST">
+                <button>Delete</button>
+            </form>
+        </div>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
